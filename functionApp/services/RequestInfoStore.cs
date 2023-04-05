@@ -40,7 +40,7 @@ public class RequestInfoStore : IRequestInfoStore
         await _tableClient.AddEntityAsync(responseInfo, cancellationToken);
 
         await _blobContainerClient.CreateIfNotExistsAsync(cancellationToken: cancellationToken);
-        await _blobContainerClient.UploadBlobAsync(responseInfo.RowKey, BinaryData.FromString(JsonSerializer.Serialize(response)), cancellationToken);
+        await _blobContainerClient.UploadBlobAsync($"{responseInfo.RowKey}.json", BinaryData.FromString(JsonSerializer.Serialize(response)), cancellationToken);
     }
 
     public async Task StoreUnsuccessfulResponse(DateTimeOffset requestTime, CancellationToken cancellationToken = default)
