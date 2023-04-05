@@ -1,0 +1,40 @@
+name: Deploy Funcion App
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - functionApp/**
+
+env:
+  AZURE_FUNCTIONAPP_PACKAGE_PATH: ./functionApp
+  DOTNET_VERSION: 6.x
+
+jobs:
+  build-and-deploy:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          persist-credentials: false
+
+      - name: Setup DotNet ${{ env.DOTNET_VERSION }} Environment
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: ${{ env.DOTNET_VERSION }}
+
+      - name: Build applicaton
+        shell: pwsh
+        run: |
+          pushd ./${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}
+          dotnet build --configuration Release --output ./output
+          popd
+
+      - uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - name: Deploy Azure Funcion
+        uses: Azure/functions-action@v1
+        with:
+          app-name: ${{ vars.AZURE_FUNCTIONAPP_NAME }}
+          package: ${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}/output
