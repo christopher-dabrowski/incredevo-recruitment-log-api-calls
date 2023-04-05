@@ -1,6 +1,7 @@
 using System.Collections.Specialized;
 using System.Net;
 using functionApp.models;
+using functionApp.models.responses;
 using functionApp.services;
 using Microsoft.Azure.Functions.Worker;
 using Microsoft.Azure.Functions.Worker.Http;
@@ -36,7 +37,9 @@ public class ListLogs
         {
             var (from, to) = ParseQueryParams(req.Query);
 
-            var apiResponsesList = await _requestInfoStore.ListResponseInfo(from, to, cancellationToken);
+            var apiResponsesListTableInfo = await _requestInfoStore.ListResponseInfo(from, to, cancellationToken);
+            var apiResponsesList =
+                apiResponsesListTableInfo.Select(ti => new ResponseInfoResponse(ti.RowKey, ti.Success, ti.ApiName));
 
             var response = req.CreateResponse(HttpStatusCode.OK);
             await response.WriteAsJsonAsync(apiResponsesList, cancellationToken);
