@@ -27,6 +27,17 @@ Description of my solution to the presented problem.
 
 ![Architecture diagram](docs/Architecture.drawio.png)
 
+#### IoC
+
+I've used [Bicep](https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/overview) to define IoC. The IoC approach allows me to have documented and consistent infrastructure.
+I've chosen Bicep technology as it's easy to run from any environment that has access to Azure.
+
+The Bicep code can be found in the [infrastructure](infrastructure) directory.
+
+The Bicep resource and module dependencies diagram looks as follows:
+
+![Bicep resources](./docs/Bicep_resources.png)
+
 ### Time tracking
 
 For time tracking I'm using [Clockify](https://clockify.me/) and I'm tracking time for each task using GitHub issues.  
