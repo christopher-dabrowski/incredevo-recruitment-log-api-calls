@@ -15,21 +15,13 @@ param location string = resourceGroup().location
 @description('Location for Application Insights')
 param appInsightsLocation string
 
-@description('The language worker runtime to load in the function app.')
-@allowed([
-  'node'
-  'dotnet'
-  'java'
-])
-param runtime string = 'node'
-
 param applicationInsightsName string = '${baseName}-appi'
 param storageAccountName string = take(toLower(replace(replace(baseName, '-', ''), '_', '')), 24)
 param hostingPlanName string = '${baseName}-asp'
 param functionAppName string = '${baseName}-func'
 param keyVaultName string = '${baseName}-kv'
 
-var functionWorkerRuntime = runtime
+var functionWorkerRuntime = 'dotnet-isolated'
 
 resource storageAccount 'Microsoft.Storage/storageAccounts@2022-05-01' = {
   name: storageAccountName
