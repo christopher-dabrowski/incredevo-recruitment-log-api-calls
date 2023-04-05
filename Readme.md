@@ -51,4 +51,6 @@ _This section content will be added when I finish the implementation_
 
 Noteworthy decisions and aspects of the implementation and project configuration or work methodology.
 
+- I've decided to use the access policy Key Vault permission model instead of RBAC. I've more experience with the access policies, but if I were to develop the project further I'd consider migration to the RBAC model.
+
 _WIP_
