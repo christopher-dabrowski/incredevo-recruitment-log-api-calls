@@ -1,6 +1,7 @@
 using System.Text.Json;
 using Azure;
 using Azure.Data.Tables;
+using Azure.Storage.Blobs;
 using functionApp.httpClients;
 using Microsoft.Azure.Functions.Worker;
 using Microsoft.Extensions.Configuration;
@@ -49,6 +50,14 @@ public class StoreApiResponse
             };
 
             await tableClient.AddEntityAsync(result);
+
+            var blobStorageClient = new BlobServiceClient(_configuration["AzureWebJobsStorage"]);
+            var info = await blobStorageClient.GetAccountInfoAsync();
+
+            var blobContainer = blobStorageClient.GetBlobContainerClient("testcontainer");
+            await blobContainer.CreateIfNotExistsAsync();
+
+            await blobContainer.UploadBlobAsync(result.RowKey, BinaryData.FromString(JsonSerializer.Serialize(apiResponse)));
         }
         catch
         {
