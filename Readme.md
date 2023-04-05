@@ -57,6 +57,12 @@ This is how using the ListLogs endpoint looks in action.
 
 ![ListLog endpoint demo](docs/ListLog_endpoint_demo.gif)
 
+#### Fetching specific response
+
+This is how using the responses endpoint looks in action.
+
+![responses endpoint demo](docs/responses_endpoint_demo.gif)
+
 ### CI/CD
 
 To implement an automated deployment process I've used GitHub Actions.  
