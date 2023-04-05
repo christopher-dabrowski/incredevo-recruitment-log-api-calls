@@ -2,6 +2,8 @@
 
 [![Deploy Azure infrastructure](https://github.com/christopher-dabrowski/incredevo-recruitment-log-api-calls/actions/workflows/deployInfrastructure.yml/badge.svg)](https://github.com/christopher-dabrowski/incredevo-recruitment-log-api-calls/actions/workflows/deployInfrastructure.yml)
 
+[![Deploy Funcion App](https://github.com/christopher-dabrowski/incredevo-recruitment-log-api-calls/actions/workflows/deployAzureFuncion.yml/badge.svg)](https://github.com/christopher-dabrowski/incredevo-recruitment-log-api-calls/actions/workflows/deployAzureFuncion.yml)
+
 This is my attempt at solving a recruitment task for the [IncreDevo company](https://incredevo.com/)
 
 ## Task description
