@@ -25,7 +25,7 @@ Description of my solution to the presented problem.
 
 ### Architecture
 
-_WIP_
+![Architecture diagram](docs/Architecture.drawio.png)
 
 ### Time tracking
 
