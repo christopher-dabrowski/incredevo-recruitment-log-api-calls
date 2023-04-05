@@ -75,6 +75,14 @@ This is how using the responses endpoint looks in action.
 
 ![table demo](docs/table_demo.png)
 
+#### GitHub Action runs
+
+The runs can be viewed in the [Actions repo tab](https://github.com/christopher-dabrowski/incredevo-recruitment-log-api-calls/actions)
+
+![deploy infrastructure action runs](docs/deploy_infrastructure_action_runs.png)
+
+![deploy Azure Function runs](docs/deploy_af_runs.png)
+
 ### Notes
 
 Noteworthy decisions and aspects of the implementation and project configuration or work methodology.
