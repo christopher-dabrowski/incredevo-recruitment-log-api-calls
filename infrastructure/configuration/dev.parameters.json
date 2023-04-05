@@ -3,7 +3,7 @@
   "contentVersion": "1.0.0.0",
   "parameters": {
     "baseName": {
-      "value": "kd-dev-incredevo-log-api-calls"
+      "value": "kd-dev-log-api"
     },
     "location": {
       "value": "westeurope"
