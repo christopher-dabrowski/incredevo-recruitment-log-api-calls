@@ -2,6 +2,7 @@ using System.Text.Json;
 using Azure;
 using Azure.Data.Tables;
 using Azure.Storage.Blobs;
+using functionApp.extensions;
 using functionApp.httpClients;
 using functionApp.services;
 using Microsoft.Azure.Functions.Worker;
@@ -31,7 +32,7 @@ public class StoreApiResponse
         var currentTime = _clock.DateTimeOffsetNow;
         _logger.LogInformation($"C# Timer trigger function executed at: {currentTime}");
 
-        TableClient tableClient = new TableClient(_configuration["AzureWebJobsStorage"], "TestTable");
+        TableClient tableClient = new TableClient(_configuration.GetStorageAccountConnectionString(), Config.TableName);
         await tableClient.CreateIfNotExistsAsync();
 
         try
@@ -54,10 +55,10 @@ public class StoreApiResponse
 
             await tableClient.AddEntityAsync(result);
 
-            var blobStorageClient = new BlobServiceClient(_configuration["AzureWebJobsStorage"]);
+            var blobStorageClient = new BlobServiceClient(_configuration.GetStorageAccountConnectionString());
             var info = await blobStorageClient.GetAccountInfoAsync();
 
-            var blobContainer = blobStorageClient.GetBlobContainerClient("testcontainer");
+            var blobContainer = blobStorageClient.GetBlobContainerClient(Config.StorageContainerName);
             await blobContainer.CreateIfNotExistsAsync();
 
             await blobContainer.UploadBlobAsync(result.RowKey, BinaryData.FromString(JsonSerializer.Serialize(apiResponse)));
