@@ -88,5 +88,7 @@ The runs can be viewed in the [Actions repo tab](https://github.com/christopher-
 Noteworthy decisions and aspects of the implementation and project configuration or work methodology.
 
 - I've decided to use the access policy Key Vault permission model instead of RBAC. I've more experience with the access policies, but if I were to develop the project further I'd consider migration to the RBAC model.
-
-_WIP_
+- I've configured commit sighing with GPG key this ensures that commits were written by me and marks them as _verified_
+- I've decided to isolated azure function process for running my app. This gives me grater control over the execution of the code and enables the runtime to be different from the hosting AF runtime
+- If I would develop the solution more I'd configure project precompilation with ReadyToRun build setting to reduce cold start time
+- I've experienced major issues when using the Azure Table Storage output binding. After struggling a while I decided to use the `Azure.Data` explicite clients instead of the funcion bindings
