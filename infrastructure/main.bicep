@@ -19,7 +19,7 @@ param applicationInsightsName string = '${baseName}-appi'
 param storageAccountName string = take(toLower(replace(replace(baseName, '-', ''), '_', '')), 24)
 param hostingPlanName string = '${baseName}-asp'
 param functionAppName string = '${baseName}-func'
-param keyVaultName string = '${baseName}-kv'
+param keyVaultName string = take('${baseName}-kv', 24)
 
 var functionWorkerRuntime = 'dotnet-isolated'
 
