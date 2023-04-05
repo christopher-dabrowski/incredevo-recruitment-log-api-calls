@@ -1,5 +1,7 @@
 # IncreDevo recruitment task - Log API calls
 
+[![Deploy Azure infrastructure](https://github.com/christopher-dabrowski/incredevo-recruitment-log-api-calls/actions/workflows/deployInfrastructure.yml/badge.svg)](https://github.com/christopher-dabrowski/incredevo-recruitment-log-api-calls/actions/workflows/deployInfrastructure.yml)
+
 This is my attempt at solving a recruitment task for the [IncreDevo company](https://incredevo.com/)
 
 ## Task description
@@ -46,6 +48,12 @@ I'll add the final time report when I finish the task.
 ### Solution showcase
 
 _This section content will be added when I finish the implementation_
+
+### CI/CD
+
+To implement an automated deployment process I've used GitHub Actions.  
+Specific actions are triggered when changes are pushed to specific repository path, or can be triggered manually.  
+Actions definitions can be found in the [.github/workflows](.github/workflows) directory.
 
 ### Notes
 
