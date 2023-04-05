@@ -3,6 +3,7 @@ using Azure;
 using Azure.Data.Tables;
 using Azure.Storage.Blobs;
 using functionApp.httpClients;
+using functionApp.services;
 using Microsoft.Azure.Functions.Worker;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
@@ -14,18 +15,20 @@ public class StoreApiResponse
     private readonly ILogger _logger;
     private readonly IPublicApisHttpClient _publicApisHttpClient;
     private readonly IConfiguration _configuration;
+    private readonly IClock _clock;
 
-    public StoreApiResponse(ILoggerFactory loggerFactory, IPublicApisHttpClient publicApisHttpClient, IConfiguration configuration)
+    public StoreApiResponse(ILoggerFactory loggerFactory, IPublicApisHttpClient publicApisHttpClient, IConfiguration configuration, IClock clock)
     {
         _publicApisHttpClient = publicApisHttpClient;
         _configuration = configuration;
+        _clock = clock;
         _logger = loggerFactory.CreateLogger<StoreApiResponse>();
     }
 
     [Function("StoreApiResponse")]
     public async Task Run([TimerTrigger("0 */1 * * * *", RunOnStartup = true)] TimerTriggerInfo myTimer)
     {
-        var currentTime = DateTimeOffset.Now; // TODO: Use service for mocking current time
+        var currentTime = _clock.DateTimeOffsetNow;
         _logger.LogInformation($"C# Timer trigger function executed at: {currentTime}");
 
         TableClient tableClient = new TableClient(_configuration["AzureWebJobsStorage"], "TestTable");
