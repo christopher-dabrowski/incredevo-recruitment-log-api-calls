@@ -10,6 +10,7 @@ var host = new HostBuilder()
     {
         services.AddTransient<IClock, Clock>();
         services.AddHttpClient<IPublicApisHttpClient, PublicApisHttpClient>();
+        services.AddScoped<IRequestInfoStore, RequestInfoStore>();
     })
     .Build();
 

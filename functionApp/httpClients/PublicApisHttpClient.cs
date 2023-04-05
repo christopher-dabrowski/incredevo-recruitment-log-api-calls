@@ -1,5 +1,5 @@
 ﻿using System.Net.Http.Json;
-using functionApp.httpClients.responses;
+using functionApp.models.responses;
 
 namespace functionApp.httpClients;
 

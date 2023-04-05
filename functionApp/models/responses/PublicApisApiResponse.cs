@@ -1,4 +1,4 @@
-﻿namespace functionApp.httpClients.responses;
+﻿namespace functionApp.models.responses;
 
 public class PublicApisApiResponse
 {

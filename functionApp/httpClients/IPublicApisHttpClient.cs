@@ -1,4 +1,4 @@
-﻿using functionApp.httpClients.responses;
+﻿using functionApp.models.responses;
 
 namespace functionApp.httpClients;
 
