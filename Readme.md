@@ -49,12 +49,18 @@ I'll add the final time report when I finish the task.
 
 ### Solution showcase
 
-_This section content will be added when I finish the implementation_
+Azure Funcion is deployed to the Azure. I've also added the [Swagger API description](https://kd-dev-log-api-func.azurewebsites.net/api/swagger/ui) for easy exploration of the endpoints.
+
+#### Listing logs
+
+This is how using the ListLogs endpoint looks in action.
+
+![ListLog endpoint demo](docs/ListLog_endpoint_demo.gif)
 
 ### CI/CD
 
 To implement an automated deployment process I've used GitHub Actions.  
-Specific actions are triggered when changes are pushed to specific repository path, or can be triggered manually.  
+Specific actions are triggered when changes are pushed to a specific repository path or can be triggered manually.  
 Actions definitions can be found in the [.github/workflows](.github/workflows) directory.
 
 ### Notes
