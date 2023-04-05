@@ -26,6 +26,7 @@ public class ListLogs
     [OpenApiParameter(name: "from", In = ParameterLocation.Query, Required = false, Type = typeof(DateTimeOffset), Description = "ISO 8601 format - defaults to current time -1h")]
     [OpenApiParameter(name: "to", In = ParameterLocation.Query, Required = false, Type = typeof(DateTimeOffset), Description = "ISO 8601 format - defaults to current time")]
     [OpenApiResponseWithBody(statusCode: HttpStatusCode.OK, contentType: "text/json", bodyType: typeof(IList<ResponseInfoTableData>), Summary = "List api response logs")]
+    [OpenApiResponseWithoutBody(HttpStatusCode.BadRequest)]
     [Function("ListLogs")]
     public async Task<HttpResponseData> Run([HttpTrigger(AuthorizationLevel.Anonymous, "get")] HttpRequestData req, CancellationToken cancellationToken)
     {
