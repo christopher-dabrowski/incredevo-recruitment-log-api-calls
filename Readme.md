@@ -47,6 +47,12 @@ The Bicep resource and module dependencies diagram looks as follows:
 For time tracking I'm using [Clockify](https://clockify.me/) and I'm tracking time for each task using GitHub issues.  
 I'll add the final time report when I finish the task.
 
+### CI/CD
+
+To implement an automated deployment process I've used GitHub Actions.  
+Specific actions are triggered when changes are pushed to a specific repository path or can be triggered manually.  
+Actions definitions can be found in the [.github/workflows](.github/workflows) directory.
+
 ### Solution showcase
 
 Azure Funcion is deployed to the Azure. I've also added the [Swagger API description](https://kd-dev-log-api-func.azurewebsites.net/api/swagger/ui) for easy exploration of the endpoints.
@@ -62,12 +68,6 @@ This is how using the ListLogs endpoint looks in action.
 This is how using the responses endpoint looks in action.
 
 ![responses endpoint demo](docs/responses_endpoint_demo.gif)
-
-### CI/CD
-
-To implement an automated deployment process I've used GitHub Actions.  
-Specific actions are triggered when changes are pushed to a specific repository path or can be triggered manually.  
-Actions definitions can be found in the [.github/workflows](.github/workflows) directory.
 
 ### Notes
 
