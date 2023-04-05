@@ -1,5 +1,6 @@
 # Azurite storage emulator
 __azurite_db_*.json
+__azurite_db_*.json~
 __blobstorage__/
 __queuestorage__/
 __tablestorage__/

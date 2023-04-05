@@ -54,4 +54,12 @@ public class RequestInfoStore : IRequestInfoStore
         };
         await _tableClient.AddEntityAsync(responseInfo, cancellationToken);
     }
+
+    public async Task<IEnumerable<ResponseInfoTableData>> ListResponseInfo(DateTimeOffset from, DateTimeOffset to, CancellationToken cancellationToken = default)
+    {
+        var queryAsync = _tableClient.QueryAsync<ResponseInfoTableData>(responseInfo =>
+            responseInfo.RequestTime >= from && responseInfo.RequestTime < to, cancellationToken: cancellationToken);
+
+        return await queryAsync.ToArrayAsync(cancellationToken);
+    }
 }
