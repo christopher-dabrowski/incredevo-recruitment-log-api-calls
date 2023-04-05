@@ -16,7 +16,7 @@ param location string = resourceGroup().location
 param infrasturcutreTenantId string = tenant().tenantId
 
 param applicationInsightsName string = '${baseName}-appi'
-param storageAccountName string = take(toLower(replace(replace(baseName, '-', ''), '_', '')), 24)
+param storageAccountName string = '${take(toLower(replace(replace(baseName, '-', ''), '_', '')), 24)}sa'
 param hostingPlanName string = '${baseName}-asp'
 param functionAppName string = '${baseName}-func'
 param keyVaultName string = take('${baseName}-kv', 24)
