@@ -15,5 +15,6 @@ resource appServiceConfig 'Microsoft.Web/sites/config@2022-03-01' = {
     FUNCTIONS_EXTENSION_VERSION: '~4'
     APPINSIGHTS_INSTRUMENTATIONKEY: '@Microsoft.KeyVault(VaultName=${keyVaultName};SecretName=ApplicationInsights--InstrumentationKey)'
     FUNCTIONS_WORKER_RUNTIME: runtime
+    WEBSITE_CONTENTSHARE: '${toLower(parentName)}${take(uniqueString(resourceGroup().id), 8)}'
   }
 }
