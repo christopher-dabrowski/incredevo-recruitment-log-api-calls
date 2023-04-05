@@ -69,6 +69,12 @@ This is how using the responses endpoint looks in action.
 
 ![responses endpoint demo](docs/responses_endpoint_demo.gif)
 
+#### Storage account data
+
+![blob demo](docs/blob_demo.png)
+
+![table demo](docs/table_demo.png)
+
 ### Notes
 
 Noteworthy decisions and aspects of the implementation and project configuration or work methodology.
