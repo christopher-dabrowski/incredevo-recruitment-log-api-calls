@@ -1,5 +1,5 @@
-@description('The name of the function app that you wish to create.')
-param appName string = 'fnapp${uniqueString(resourceGroup().id)}'
+@description('Base name for all resources')
+param baseName string = 'fnapp${uniqueString(resourceGroup().id)}'
 
 @description('Storage Account type')
 @allowed([
@@ -23,10 +23,12 @@ param appInsightsLocation string
 ])
 param runtime string = 'node'
 
-var functionAppName = appName
-var hostingPlanName = appName
-var applicationInsightsName = appName
-var storageAccountName = '${uniqueString(resourceGroup().id)}azfunctions'
+param applicationInsightsName string = '${baseName}-appi'
+param storageAccountName string = take(toLower(replace(replace(baseName, '-', ''), '_', '')), 24)
+param hostingPlanName string = '${baseName}-asp'
+param functionAppName string = '${baseName}-func'
+param keyVaultName string = '${baseName}-kv'
+
 var functionWorkerRuntime = runtime
 
 resource storageAccount 'Microsoft.Storage/storageAccounts@2022-05-01' = {
