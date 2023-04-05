@@ -62,4 +62,14 @@ public class RequestInfoStore : IRequestInfoStore
 
         return await queryAsync.ToArrayAsync(cancellationToken);
     }
+
+    public async Task<PublicApisApiResponse?> GetResponseData(string responseId, CancellationToken cancellationToken = default)
+    {
+        var blob = _blobContainerClient.GetBlobClient($"{responseId}.json");
+        if (!await blob.ExistsAsync(cancellationToken))
+            return null;
+
+        var downloadResult = await blob.DownloadContentAsync(cancellationToken);
+        return downloadResult.Value.Content.ToObjectFromJson<PublicApisApiResponse>();
+    }
 }

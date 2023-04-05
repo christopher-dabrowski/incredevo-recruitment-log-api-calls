@@ -10,4 +10,6 @@ public interface IRequestInfoStore
     Task StoreUnsuccessfulResponse(DateTimeOffset requestTime, CancellationToken cancellationToken = default);
 
     Task<IEnumerable<ResponseInfoTableData>> ListResponseInfo(DateTimeOffset from, DateTimeOffset to, CancellationToken cancellationToken = default);
+
+    Task<PublicApisApiResponse?> GetResponseData(string responseId, CancellationToken cancellationToken = default);
 }
