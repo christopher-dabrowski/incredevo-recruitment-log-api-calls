@@ -1,0 +1,28 @@
+name: Deploy Azure infrastructure
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - infrastructure/**
+
+jobs:
+  azure-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          persist-credentials: false
+
+      - uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - name: deploy
+        uses: azure/arm-deploy@v1
+        with:
+          scope: resourcegroup
+          subscriptionId: ${{ vars.AZURE_SUBSCRIPTION }}
+          resourceGroupName: ${{ vars.AZURE_RG }}
+          template: infrastructure/main.bicep
+          deploymentMode: Complete
+          parameters: infrastructure/configuration/dev.parameters.json
