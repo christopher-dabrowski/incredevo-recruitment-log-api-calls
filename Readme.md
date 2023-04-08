@@ -61,7 +61,6 @@ The Bicep resource and module dependencies diagram looks as follows:
 ### Time tracking
 
 For time tracking I'm using [Clockify](https://clockify.me/) and I'm tracking time for each task using GitHub issues.  
-I'll add the final time report when I finish the task.
 
 Total time spent on project: 07:25:05
 
