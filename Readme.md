@@ -6,6 +6,22 @@
 
 This is my attempt at solving a recruitment task for the [IncreDevo company](https://incredevo.com/)
 
+## Table of Contents
+
+- [Table of Contents](#table-of-contents)
+- [Task description](#task-description)
+- [Solution](#solution)
+  - [Architecture](#architecture)
+    - [IoC](#ioc)
+  - [Time tracking](#time-tracking)
+  - [CI/CD](#cicd)
+  - [Solution showcase](#solution-showcase)
+    - [Listing logs](#listing-logs)
+    - [Fetching specific response](#fetching-specific-response)
+    - [Storage account data](#storage-account-data)
+    - [GitHub Action runs](#github-action-runs)
+  - [Notes](#notes)
+
 ## Task description
 
 Must use:
