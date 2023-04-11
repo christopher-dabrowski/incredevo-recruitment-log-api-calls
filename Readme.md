@@ -72,8 +72,8 @@ _format: \#{gh-issue} {name} - {time spent}_
 - #3 Create architecture diagram - 00:25:18
 - #4 Prepare IoC - 00:18:14
 - #5 CI/CD for IoC - 01:09:32
-- #6 Create basic Azure Funcion - 00:05:05
-- #7 CI/CD for Azure Funcion - 00:12:24
+- #6 Create basic Azure Function - 00:05:05
+- #7 CI/CD for Azure Function - 00:12:24
 - #8 Explore api - 00:08:00
 - #12 Add Swagger - 00:07:49
 - #9 Store API call logs in table and blob - 02:07:06
